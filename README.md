@@ -1,13 +1,4 @@
-# Context-Aware Sequential Model for Multi-Behaviour Recommendation
 
-This repository contains the PyTorch implementation of the paper:
-"Context-Aware Sequential Model for Multi-Behaviour Recommendation" by Shereen Elsayed, Ahmed Rashed, and Lars Schmidt-Thieme. https://arxiv.org/abs/2312.09684
-
-## Abstract
-Sequential recommendation models have recently become crucial for next-item recommendation tasks on various online platforms due to their ability to capture complex sequential patterns in historical user interactions. While many recent sequential models focus on modeling a single behavior (e.g., purchase), other implicit user interactions such as clicks and add-to-favorite can provide deeper insights into users' sequential behavior. This work proposes a Context-Aware Sequential Model (CASM) for multi-behavioral recommendations that leverages the advantages of sequential models and supports an arbitrary number of behaviors. Experimental results on four real-world datasets show that the proposed model significantly outperforms multiple state-of-the-art approaches.
-
-## Performance Boost
-Our CASM model shows a performance improvement of up to 19.24% over [CARCA](https://arxiv.org/abs/2204.06519) on various datasets.
 
 | Method                           | MovieLens HR@10 | MovieLens NDCG@10 | Tianchi HR@10 | Tianchi NDCG@10 |
 |----------------------------------|-----------------|--------------------|---------------|-----------------|
@@ -24,48 +15,3 @@ Our CASM model shows a performance improvement of up to 19.24% over [CARCA](http
 | **CASM**                         | **0.930 ± 6𝐸−4**| **0.713 ± 1.3𝐸−3** | **0.755 ± 9𝐸−4**| **0.584 ± 2.7𝐸−3** |
 | **Improv.(%)**                   | **1.86%**       | **2.44%**           | **2.99%**     | **5.95%**       |
 
-
-## Requirements
-- Python
-- PyTorch 
-- NumPy
-- pandas
-
-To install the required packages, run:
-
-## Usage
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/ariaattar/CASM-PyTorch.git
-    cd CASM
-    ```
-
-2. Install the required packages:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3. Train the model:
-    ```bash
-    python main.py
-    ```
-
-
-## Original TensorFlow Implementation
-For the original TensorFlow implementation of the CASM model, please visit the following repository:
-[CASM TensorFlow Implementation](https://github.com/Shereen-Elsayed/CASM)
-
-
-## Citation
-If you use this code for your research, please cite our paper:
-```bibtex
-@article{elsayed2023casm,
-  title={Context-Aware Sequential Model for Multi-Behaviour Recommendation},
-  author={Elsayed, Shereen and Rashed, Ahmed and Schmidt-Thieme, Lars},
-  journal={arXiv preprint arXiv:2312.09684},
-  year={2023}
-}
-```
-
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
