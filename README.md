@@ -39,15 +39,19 @@ To install the required packages, run:
 1. Clone the repository:
     ```bash
     git clone https://github.com/ariaattar/CASM-PyTorch.git
-    cd CASM
+    cd CASM-PyTorch
+    ```
+2. Clone the repository:
+    ```bash
+    unzip tianchi.zip
     ```
 
-2. Install the required packages:
+3. Install the required packages:
     ```bash
     pip install -r requirements.txt
     ```
 
-3. Train the model:
+4. Train the model:
     ```bash
     python main.py
     ```
