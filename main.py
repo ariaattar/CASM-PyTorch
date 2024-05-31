@@ -19,20 +19,21 @@ def str2bool(s):
     return s == 'True'
 
 parser = argparse.ArgumentParser()
+parser.add_argument('--dataset', default='data/Tmall', required=False)
 parser.add_argument('--train_dir', default='train', required=False)
 parser.add_argument('--batch_size', default=128, type=int)
 parser.add_argument('--lr', default=0.0005, type=float)
 parser.add_argument('--maxlen', default=150, type=int)
 parser.add_argument('--hidden_units', default=85, type=int)
 parser.add_argument('--num_blocks', default=2, type=int)
-parser.add_argument('--num_epochs', default=801, type=int)
+parser.add_argument('--num_epochs', default=1, type=int)
 parser.add_argument('--num_heads', default=1, type=int)
 parser.add_argument('--dropout_rate', default=0.25, type=float)
 parser.add_argument('--l2_emb', default=0.0, type=float)
 
 
 tstInt = None
-with open('Tianchi_tst_int', 'rb') as fs:
+with open('data/Tmall_tst_int', 'rb') as fs:
     tstInt = np.array(pickle.load(fs))
 
 tstStat = (tstInt!=None)
@@ -68,8 +69,10 @@ if __name__ == "__main__":
         try:
             torch.nn.init.xavier_normal_(param.data)
         except:
-            pass 
+            pass # just ignore those failed init layers
 
+    # this fails embedding init 'Embedding' object has no attribute 'dim'
+    # model.apply(torch.nn.init.xavier_uniform_)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, betas=(0.9, 0.98))
 
     T = 0.0
@@ -78,7 +81,7 @@ if __name__ == "__main__":
 
 
     for epoch in range(1, args.num_epochs + 1):
-        model.train() 
+        model.train() # enable model training
         
         total_loss = 0
         for step in range(num_batch):
@@ -105,15 +108,15 @@ if __name__ == "__main__":
         
         print(f'loss in epoch {epoch}: {total_loss / num_batch:.4f}')
         
-        model.eval()
+        model.eval() # disable model training
         
-        if epoch % 20 == 0:
-            t1 = time.time() - t0
-            T += t1
-            print('Evaluating')
-            t_valid = torch_evaluate_valid(model, dataset, tstUsrs, args)
-            
-            print(f'epoch {epoch}, time: {T:.1f}s, valid (NDCG@10: {t_valid[0]:.4f}, HR@10: {t_valid[1]:.4f})')
+
+        t1 = time.time() - t0
+        T += t1
+        print('Evaluating')
+        t_valid = torch_evaluate_valid(model, dataset, tstUsrs, args)
+        
+        print(f'epoch {epoch}, time: {T:.1f}s, valid (NDCG@10: {t_valid[0]:.4f}, HR@10: {t_valid[1]:.4f})')
 
     sampler.close()
     f.close()
