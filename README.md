@@ -3,8 +3,8 @@
 This repository contains the PyTorch implementation of the paper:
 "Context-Aware Sequential Model for Multi-Behaviour Recommendation" by Shereen Elsayed, Ahmed Rashed, and Lars Schmidt-Thieme. https://arxiv.org/abs/2312.09684
 
-## Abstract
-Sequential recommendation models have recently become crucial for next-item recommendation tasks on various online platforms due to their ability to capture complex sequential patterns in historical user interactions. While many recent sequential models focus on modeling a single behavior (e.g., purchase), other implicit user interactions such as clicks and add-to-favorite can provide deeper insights into users' sequential behavior. This work proposes a Context-Aware Sequential Model (CASM) for multi-behavioral recommendations that leverages the advantages of sequential models and supports an arbitrary number of behaviors. Experimental results on four real-world datasets show that the proposed model significantly outperforms multiple state-of-the-art approaches.
+## Summary
+CASM is a sequential recommendation model that utilizes multiple user behaviors to capture complex patterns in historical interactions. It outperforms state-of-the-art approaches on four real-world datasets by leveraging context-aware multi-head self-attention layers and a weighted binary cross-entropy loss to support an arbitrary number of behaviors.
 
 <img width="868" alt="Screenshot 2024-05-30 at 11 51 04 AM" src="https://github.com/ariaattar/CASM-PyTorch/assets/72599441/c6eaef8b-c623-45a8-b170-602dd57dbac0">
 
