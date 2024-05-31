@@ -43,7 +43,7 @@ To install the required packages, run:
     ```
 2. Clone the repository:
     ```bash
-    unzip data/Tmall.zip
+    unzip data/Tmall.zip -d data
     ```
 
 3. Install the required packages:
