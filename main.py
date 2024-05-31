@@ -19,7 +19,6 @@ def str2bool(s):
     return s == 'True'
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--dataset', default='data/Tmall', required=False)
 parser.add_argument('--train_dir', default='train', required=False)
 parser.add_argument('--batch_size', default=128, type=int)
 parser.add_argument('--lr', default=0.0005, type=float)
@@ -33,7 +32,7 @@ parser.add_argument('--l2_emb', default=0.0, type=float)
 
 
 tstInt = None
-with open('data/Tianchi_tst_int', 'rb') as fs:
+with open('Tianchi_tst_int', 'rb') as fs:
     tstInt = np.array(pickle.load(fs))
 
 tstStat = (tstInt!=None)
