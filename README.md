@@ -26,14 +26,6 @@ Our CASM model shows a performance improvement of up to 19.24% over [CARCA](http
 | **Improv.(%)**                   | **1.86%**       | **2.44%**           | **2.99%**     | **5.95%**       |
 
 
-## Requirements
-- Python
-- PyTorch 
-- NumPy
-- pandas
-
-To install the required packages, run:
-
 ## Usage
 1. Clone the repository:
     ```bash
