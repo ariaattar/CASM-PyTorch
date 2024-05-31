@@ -43,7 +43,7 @@ To install the required packages, run:
     ```
 2. Clone the repository:
     ```bash
-    unzip tianchi.zip
+    unzip data/Tmall.zip
     ```
 
 3. Install the required packages:
